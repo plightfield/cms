@@ -42,7 +42,6 @@ export const testCompoConfig: CompoConfig = {
   template:
     '`<button type="button" class="btn btn-danger"><%= test%></button><script>console.log(123)</script>`',
   script: `console.log('<%= log%>')`,
-
   form: `
   <WrapForm handleSubmit={handleSubmit}>
   <Group>
