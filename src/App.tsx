@@ -1,19 +1,22 @@
 import React from "react";
-import { Button } from "react-bootstrap";
-import ComponentConfigForm from "./components/ComponentConfigForm";
-import ComponentRender from "./components/ComponentRender";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import ComponentAdder from "./views/ComponentAdder";
+import Home from "./views/Home";
 function App() {
   return (
-    <div>
-      <Button>test</Button>
-      <ComponentRender />
-      <ComponentConfigForm
-        initValue={["shit", ""]}
-        onChange={(e) => {
-          console.log(e);
-        }}
-      />
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route path='/' exact>
+          <Redirect to={{ pathname: "/home" }} />
+        </Route>
+        <Route path='/home'>
+          <Home />
+        </Route>
+        <Route path='/component-adder'>
+          <ComponentAdder />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
