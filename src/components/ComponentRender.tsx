@@ -20,6 +20,7 @@ function ComponentRender() {
   useEffect(() => {
     if (data?.script && evalTime.current <= 0) {
       try {
+        // eslint-disable-next-line
         eval(ejsRender(data?.script || "", data?.config || {}));
         evalTime.current = 1;
       } catch (err) {
